@@ -1,9 +1,25 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
-import React from 'react'
+import React, { useState, useEffect  } from 'react'
+import GlobalApi from '../_utils/GlobalApi'
 
 const CategorySearch = () => {
+
+const[categoryList,setCategoryList]=useEffect([]);
+
+useEffect(()=>{
+  getCategoryList()
+},[])
+
+const getCategoryList=()=>{
+  GlobalApi.getCategory().then(resp=>{
+    console.log(resp.data.data);
+    setCategoryList(resp.data.data);
+  })
+}
+
   return (
     <div className='mb-10 items-center flex flex-col gap-4' >
         <h2 className='font-bold text-4xl tracking-wide'>Search <span className='text-blue-500'>Doctors</span></h2>

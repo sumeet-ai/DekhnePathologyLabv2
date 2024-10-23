@@ -31,7 +31,7 @@ const Header = () => {
             {Menu.map((item,index)=>(
               <Link href={item.path}>
             <li className='hover:text-blue-500 cursor-pointer hover:scale-105 transition-all ease-in-out'>{item.name}</li>
-            </Link>
+            </Link> 
           ))}
         </ul>
       </div>
