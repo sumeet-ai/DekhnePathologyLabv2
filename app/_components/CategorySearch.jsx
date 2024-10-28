@@ -5,6 +5,7 @@ import {  Search } from 'lucide-react'
 import React, { useState, useEffect  } from 'react'
 import GlobalApi from '../_utils/GlobalApi'
 import Image from 'next/image'
+import Link from 'next/link'
 function CategorySearch(){
 
   const[categoryList,setCategoryList]=useState([]);
@@ -34,7 +35,7 @@ return (
   </div>
   <div className='grid grid-cols-3 px-5 md:grid-cols-3 lg:grid-cols-3'>
   {categoryList.map((item, index) => (
-  <div key={index} className='flex flex-col text-center items-center p-2 m-2 bg-blue-100 rounded-lg gap-2 hover:scale-110 transition-all ease-in-out'>
+  <Link href={'/Search/'+item.Name} key={index} className='flex flex-col text-center items-center p-2 m-2 bg-blue-100 rounded-lg gap-2 hover:scale-110 transition-all ease-in-out'>
     <Image 
       src={item?.Icon?.url}  // This fetches the correct image URL
       alt="icon"
@@ -42,7 +43,7 @@ return (
       height={40}
     />
     <label className='text-blue-600 text-sm'>{item?.Name}</label>
-  </div>
+  </Link>
 ))}
 </div>
 
