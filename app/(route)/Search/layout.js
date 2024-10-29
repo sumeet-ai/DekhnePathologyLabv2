@@ -7,8 +7,10 @@ function layout ({childern}) {
       <div className='hidden md:block'>
         {/* Cateogory */}
         <CategoryList />
+        
       </div>
-      <div className='col-span-3'>
+      <div className='col-span-6'>
+        
       {childern}
       </div>
       

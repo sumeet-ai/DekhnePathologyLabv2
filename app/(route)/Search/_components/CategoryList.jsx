@@ -37,9 +37,9 @@ function CategoryList() {
         <div className='h-screen mt-5 flex flex-col'>
             <Command>
                 <CommandInput placeholder="Type a command or search..." />
-                <CommandList>
+                <CommandList className="overflow-visible">
                     <CommandEmpty>No results found.</CommandEmpty>
-                    <CommandGroup heading="Suggestions">
+                    <CommandGroup heading="Suggestions" >
                         {categoryList.map((item, index) => (
                             <CommandItem key={index}>
                                 <Link
