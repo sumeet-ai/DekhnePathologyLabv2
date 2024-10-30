@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import  { useState, useEffect  } from 'react'
 import GlobalApi from '../_utils/GlobalApi'
+import Link from 'next/link';
 
 function DoctorList(){
     const [doctorList, setDoctorList] = useState([]);
@@ -34,8 +35,9 @@ function DoctorList(){
                             <h2 className='font-bold'>{doctor.Name}</h2>
                             <h2 className='text-primary text-sm'>Experience : {doctor.Years_of_experience} years</h2>
                             <h2 className='text-gray-500 text-sm'>{doctor.Address}</h2>
-
+                            <Link href={`/details/${doctor?.id }`} className='w-full'>
                             <h2 className='p-2 px-3 border-[1px] border-primary text-primary rounded-full w-full text-center text-[11px] mg-2 cursor-pointer hover:bg-primary hover:text-white'>Book Now</h2>
+                            </Link>
                         </div> 
                     </div> //from the doctors part location of attributes mentioned from console needed in h2 above
                 ))}
