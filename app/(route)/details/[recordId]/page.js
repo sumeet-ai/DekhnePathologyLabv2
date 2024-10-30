@@ -7,14 +7,10 @@ import BookAppointments from '../../Search/_components/BookApooitnments';
 function Details({params})  {
 
   useEffect(()=>{
-    getDoctorById();
+    
   },[])
 
-  const getDoctorById=()=>{
-    GlobalApi.getDoctorById(params.recordId).then(resp=>{
-      console.log(resp)
-    })
-  }
+  
 
   return (
     <div className='p-5 md:px-20'>
