@@ -55,6 +55,9 @@ function BookAppointments() {
         GlobalApi.bookAppointment(data).then(resp => {
             console.log(resp);
             if (resp) {
+                GlobalApi.sendEmail(data).then(resp=>{
+                    console.log(resp)
+                })
                 toast("Booking Confirmation will be sent to you by mail");
             }
         }).catch(error => {
