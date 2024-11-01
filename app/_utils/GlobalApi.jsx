@@ -22,10 +22,13 @@ const bookAppointment=(data)=>axiosClient.post('/appointments',data);
 
 const sendEmail=(data)=>axios.post('/api/sendEmail',data);
 
+const getuserBookingList=(userEmail)=>axiosClient.get('/appointments?[filters][Email][$eq]='+userEmail+'&populate=*')
+
 export default{
     getCategory,
     getDoctorList,
     getDoctorByCategory,
     bookAppointment,
-    sendEmail
+    sendEmail,
+    getuserBookingList
 }

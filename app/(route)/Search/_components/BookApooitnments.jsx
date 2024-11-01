@@ -15,6 +15,7 @@ import { DialogClose } from '@radix-ui/react-dialog';
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import GlobalApi from '@/app/_utils/GlobalApi';
 import { toast } from 'sonner';
+import Link from 'next/link';
 
 function BookAppointments() {
     const [isClient, setIsClient] = useState(false);
@@ -100,6 +101,7 @@ function BookAppointments() {
     return (
         <Dialog>
             <DialogTrigger><Button>Book your appointment</Button></DialogTrigger>
+            <Link href={'/my-booking'} className='p-3'><Button>My Booking</Button></Link>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Book an Appointment</DialogTitle>
