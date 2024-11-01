@@ -14,15 +14,11 @@ const Header = () => {
       name: 'Home',
       path: '/'
     },
-    {
-      id: 2,
-      name: 'Explore',
-      path: '/'
-    },
+    
     {
       id: 3,
       name: 'Contact us',
-      path: '/'
+      path: 'https://dekhnepathologylab.vercel.app/contactus'
     }
   ]
   

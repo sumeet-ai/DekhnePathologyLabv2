@@ -29,7 +29,6 @@ function MyBooking() {
         const today = new Date();
         today.setHours(0, 0, 0, 0); // Set today to midnight
         console.log("Today:", today); // Log today's date
-        console.log("Booking List:", bookingList); // Log the booking list
     
         const result = bookingList.filter(item => {
             if (!item?.Date) {
@@ -38,25 +37,31 @@ function MyBooking() {
             }
     
             console.log("Original Date:", item.Date); // Log original date for debugging
+    
+            // Attempt to parse date with fallback for string date
             const itemDate = new Date(item.Date);
+            if (isNaN(itemDate)) {
+                console.error(`Invalid Date format: ${item.Date}`);
+                return false; // Skip invalid dates
+            }
             itemDate.setHours(0, 0, 0, 0); // Set itemDate to midnight
+    
             console.log("Parsed Date:", itemDate); // Log parsed date
     
             // Compare the dates
             const isUpcoming = itemDate > today; // Upcoming bookings
-            const isPastOrCurrent = itemDate >= today; // Past or current bookings
+            const isPastOrCurrent = itemDate <= today; // Past or current bookings
     
             console.log(`Is Upcoming: ${isUpcoming}, Is Past/Current: ${isPastOrCurrent}`); // Log comparison results
     
-            return type === 'upcoming' ? isUpcoming : isPastOrCurrent;
+            return type === 'upcoming' ? isUpcoming : !isUpcoming;
         });
     
         console.log("Filtered Result:", result); // Log the result for debugging
         return result;
     };
     
-    
-    
+
     
 
   return (
@@ -67,8 +72,8 @@ function MyBooking() {
     <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
     <TabsTrigger value="expired">Expired</TabsTrigger>
   </TabsList>
-  <TabsContent value="upcoming" ><BookingList bookingList={filterUserBooking('upcoming')}/></TabsContent>
-  <TabsContent value="expired"><BookingList bookingList={filterUserBooking('expired')}/></TabsContent>
+  <TabsContent value="upcoming" ><BookingList bookingList={filterUserBooking('upcoming')} updateRecord={()=>getuserBookingList()}  expired={false}/></TabsContent>
+  <TabsContent value="expired"><BookingList bookingList={filterUserBooking('expired')} updateRecord={()=>getuserBookingList()} expired={true}/></TabsContent>
 </Tabs>
 
     </div>
