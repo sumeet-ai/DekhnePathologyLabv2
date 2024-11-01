@@ -5,7 +5,7 @@ const API_KEY = process.env.NEXT_PUBLIC_STRAPI_API_KEY;
 
 // Create the axios client with the base URL and headers
 const axiosClient = axios.create({
-    baseURL: 'http://localhost:1337/api',  // Correct the property name to baseURL
+    baseURL: 'https://dekhne-lab-strapi.onrender.com/api',  // Correct the property name to baseURL
     headers: {
         'Authorization': `Bearer ${API_KEY}`,  // Template literal should be inside backticks (` `)
     },
