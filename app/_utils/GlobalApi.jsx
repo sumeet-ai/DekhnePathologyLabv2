@@ -5,7 +5,7 @@ const API_KEY = process.env.NEXT_PUBLIC_STRAPI_API_KEY;
 
 // Create the axios client with the base URL and headers
 const axiosClient = axios.create({
-    baseURL: 'https://dekhne-lab-strapi.onrender.com/api',  // Correct the property name to baseURL
+    baseURL: 'https://final-strapi-server.onrender.com/api', // Correct the property name to baseURL
     headers: {
         'Authorization': `Bearer ${API_KEY}`,  // Template literal should be inside backticks (` `)
     },
@@ -17,16 +17,20 @@ const getDoctorList=()=>axiosClient.get('doctors?populate=*');
 
 const getDoctorByCategory = (category) => axiosClient.get(`/doctors?filters[categories][Name][$in]=${category}&populate=*`);
 
+const getcheck=()=>axiosClient.get('sliders?populate=*');
 
 const bookAppointment=(data)=>axiosClient.post('/appointments',data);
 
 const sendEmail=(data)=>axios.post('/api/sendEmail',data);
 
-const getuserBookingList=(userEmail)=>axiosClient.get('/appointments?[filters][Email][$eq]='+userEmail+'&populate=*')
+const getuserBookingList=(userEmail)=>axiosClient.get('/appointments?[filters][email][$eq]='+userEmail+'&populate=*')
 
 const deleteBooking=(id)=>axiosClient.delete(`/appointments/${id}`)
 
+
+
 export default{
+    getcheck,
     getCategory,
     getDoctorList,
     getDoctorByCategory,

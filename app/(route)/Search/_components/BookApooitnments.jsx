@@ -47,7 +47,7 @@ function BookAppointments() {
         const data = {
             data: {
                 username: user.given_name + " " + user.family_name,
-                Email: user.email,
+                email: user.email,
                 Date: formattedDate, // Use the formatted date
                 Time: formattedTime // Use the formatted time
             }
@@ -145,7 +145,7 @@ function BookAppointments() {
                 <DialogFooter className="sm:justify-end">
                     <DialogClose asChild>
                         <Button className='text-red-400 border-red-400' type="button" variant="outline">
-                            Close
+                            Clo se
                         </Button>
                     </DialogClose>
                     <Button type="button" disabled={!(date && selectedTimeSlot)}

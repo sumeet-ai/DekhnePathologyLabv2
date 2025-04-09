@@ -41,7 +41,7 @@ const [doctorList, setDoctorList] = useState([]);
       <div className='row-span-2 md:row-span-2 '>
       {doctorList&&doctorList.map((doctor,index)=>(
                     <div className='flex flex-row border-[1px] rounded-lg p-1 cursor-pointer hover:border-primary hover:shadow-sm transition-all ease-in-out' key={index}>
-                        <Image src={doctor?.Image[0]?.url} //image url location from console needed
+                        <Image src={doctor?.Image?.url} //image url location from console needed
                         alt='doctor'
                         width={200}
                         height={200}
